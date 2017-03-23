@@ -14,7 +14,7 @@ class FibonacciPro:
         self.limited = 1
 
     def common(self, number):
-        if 0<number <=1:
+        if 0 < number <= 1:
             return 1
         elif number <= 0:
             return 0
@@ -50,3 +50,7 @@ class FibonacciPro:
         category2N = self.steps(category2)
         result = num1/category1N/category2N
         return result
+
+    @staticmethod
+    def print_method(name, result, cost):
+        print("%s result is %s, cost time is %s" % (name, str(result), cost))

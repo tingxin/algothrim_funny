@@ -45,6 +45,7 @@ class Fibonacci:
                     break
         return times
 
+
     def steps(self, num):
         result = 1
         for i in range(1, num+1):
@@ -63,3 +64,21 @@ class Fibonacci:
             self.global_map[number] = self.improve_in_wiki(number - 1) + self.improve_in_wiki(number - 2)
         return self.global_map[number]
 
+    def improve3(self, number):
+        def fab_i(a, b, count):
+            if count == 0:
+                return b
+            return fab_i(a + b, a, count - 1)
+
+        return fab_i(1, 0, number)
+
+    def improve5(self, number):
+        t = (0, 1)
+        for i in range(2, number + 1):
+            t = (t[1], t[0] + t[1])
+        return t[1]
+
+
+    @staticmethod
+    def print_method(name, result, cost):
+        print("%s result is %s, cost time is %s" % (name, str(result), cost))
